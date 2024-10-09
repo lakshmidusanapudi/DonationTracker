@@ -1,0 +1,11 @@
+{
+    "CreateCashCollectionTable":"Create Table IF NOT EXISTS CashCollection (Devotte Varchar(225),PhnNumber Varchar(10),Email Varchar(225),Amount Decimal,TransactionMode Varchar(225),CollectedBy Varchar(225),CollectedDate Varchar(225))",
+
+
+
+
+
+
+
+    "CreateItemCollectionTable":"Create Table IF NOT EXISTS ItemsCollection (Devotte Varchar(225),PhnNumber Varchar(10),Email Varchar(225),ItemName Varchar(225),Quantity Int,CollectedBy Varchar(225),CollectedDate Varchar(225))"
+}
