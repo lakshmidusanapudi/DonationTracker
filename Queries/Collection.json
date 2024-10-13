@@ -1,11 +1,12 @@
 {
-    "CreateCashCollectionTable":"Create Table IF NOT EXISTS CashCollection (Devotte Varchar(225),PhnNumber Varchar(10),Email Varchar(225),Amount Decimal,TransactionMode Varchar(225),CollectedBy Varchar(225),CollectedDate Varchar(225))",
+    "CreateCashCollectionTable":"Create Table IF NOT EXISTS CashCollection (Devotte Varchar(225),PhnNumber Varchar(10),Email Varchar(225),Amount Decimal,TransactionMode Varchar(225),CommitteName Varchar(255),CollectedBy Varchar(225),CollectedDate Varchar(225))",
+    "AddCashCollection":"INSERT INTO CashCollection (Devotte,PhnNumber,Email,Amount,TransactionMode,CommitteName,CollectedBy,CollectedDate) VALUES(?,?,?,?,?,?,?,?)",
+    "CreateItemCollectionTable":"Create Table IF NOT EXISTS ItemsCollection (Devotte Varchar(225),PhnNumber Varchar(10),Email Varchar(225),ItemName Varchar(225),Quantity Int,CommitteName Varchar(225),CollectedBy Varchar(225),CollectedDate Varchar(225))",
+    "AddItemCollection":"INSERT INTO ItemsCollection (Devotte,PhnNumber,Email,ItemName,Quantity,CommitteName,CollectedBy,CollectedDate) VALUES(?,?,?,?,?,?,?,?)",
+    "Committemembercheck": "SELECT * FROM CommitteMembers WHERE FullName=?",
+    "getallcashcollection":"SELECT * FROM CashCollection",
+    "getcashbycommitte":"SELECT * FROM CashCollection where CommitteName=?",
+     "getallitemcollection":"SELECT * FROM Itemollection",
+    "getitembycommitte":"SELECT * FROM ItemCollection where CommitteName=?"
 
-
-
-
-
-
-
-    "CreateItemCollectionTable":"Create Table IF NOT EXISTS ItemsCollection (Devotte Varchar(225),PhnNumber Varchar(10),Email Varchar(225),ItemName Varchar(225),Quantity Int,CollectedBy Varchar(225),CollectedDate Varchar(225))"
 }

@@ -1,8 +1,10 @@
 {
-   "CreateCommitteMembersTable":"Create table  IF NOT EXISTS CommitteMembers(AdminID Varchar(225),FullName Varchar(225),Email Varchar(225),PhnNumber Varchar(10),Password Varchar(225))",
+   "CreateCommitteMembersTable":"Create table  IF NOT EXISTS CommitteMembers(AdminID Varchar(225),FullName Varchar(225),Email Varchar(225),PhnNumber Varchar(10),CommitteName Varchar(20),Address Varchar(20),Password Varchar(225))",
 
+   "AddCommitteMember": "INSERT INTO CommitteMembers (AdminID, FullName, Email, PhnNumber, CommitteName,Address,Password) VALUES (?, ?, ?, ?, ?,?,?)",
 
+   "Committecheck": "SELECT * FROM Admins WHERE AdminID = ? AND CommitteName = ?",
 
+   "Committelogin":"SELECT * FROM Admins Where Email=? AND Password=?"
 
-   "AddCommitteMember":"INSERT into CommitteMembers(?,?,?,?,?)"
 }

@@ -18,5 +18,20 @@ const Register = async (req, res) => {
             res.status(500).json({ message: "Error creating user", error: createError.message });
         }
 };
+const Login=async(req,res)=>{
+    const{Email,Password}=req.body;
+    if(!Email||!Password){
+        res.status(400);
+        throw new Error("Please enter all fields");
+    }
+    try{
+        await connection.query(Queries.Adminlogin,[Email,Password]);
+        res.status(200).json({message:"Admin Login Sucessfully"});
+    }
+    catch(error){
+        console.error("Error in login",error);
+        res.status(500).json({ message: "Error creating user", error: createError.message });
+    }
+};
 
-module.exports = { Register};
+module.exports = { Register,Login};

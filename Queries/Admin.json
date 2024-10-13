@@ -1,10 +1,8 @@
 {
     "CreateAdminTable":"Create table  IF NOT EXISTS Admins(AdminID Varchar(225) Primary Key,FullName Varchar(225),Email Varchar(225),PhnNumber Varchar(10),CommitteName Varchar(225),Address Text,Password Varchar(225))",
 
+    "AddAdmin":"INSERT INTO Admins (AdminID, FullName, Email, PhnNumber, CommitteName, Address, Password)SELECT CONCAT('ADM', LPAD(COALESCE(MAX(CAST(SUBSTRING(AdminID, 4) AS UNSIGNED)) + 1, 1), 5, '0')),?, ?, ?, ?, ?, ? FROM Admins;",
 
-
-
-
-    "AddAdmin":"INSERT INTO Admins (AdminID, FullName, Email, PhnNumber, CommitteName, Address, Password)SELECT CONCAT('ADM', LPAD(COALESCE(MAX(CAST(SUBSTRING(AdminID, 4) AS UNSIGNED)) + 1, 1), 5, '0')),?, ?, ?, ?, ?, ? FROM Admins;"
+    "Adminlogin":"SELECT * FROM Admins Where Email=? AND Password=?"
 
 }
