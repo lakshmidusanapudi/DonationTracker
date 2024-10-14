@@ -3,7 +3,7 @@ import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import '../Styles/Registeradmin.css';
 
-const Registeradmin = () => {
+const Addcommittemember = () => {
   const [formData, setFormData] = useState({
     AdminID:'',
     FullName:'', 
@@ -76,4 +76,4 @@ const Registeradmin = () => {
     </div>
   );
 };
-export default Registeradmin;
+export default Addcommittemember;

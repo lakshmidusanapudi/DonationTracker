@@ -1,14 +1,25 @@
 import React from 'react';
-import "../Styles/HomePage.css"
+import { useNavigate } from 'react-router-dom';
+import "../Styles/HomePage.css";
 
 const Homepage = () => {
+  const navigate = useNavigate();
+
+  const handleAdminRegister = () => {
+    navigate('/RegisterAdmin'); 
+  };
+
+  const handleComitteMemberRegister = () => {
+    navigate('/ComitteMember'); // Navigate to AddComitteMember page
+  };
+
   return (
     <div>
       <nav className="navbar">
         <h1 className="navbar-heading">Donation Tracker</h1>
         <div className="navbar-buttons">
-          <button className="btn">Admin Register</button>
-          <button className="btn">Comitte Member Resgister</button>
+          <button className="btn" onClick={handleAdminRegister}>Admin Register</button>
+          <button className="btn" onClick={handleComitteMemberRegister}>Comitte Member Register</button>
         </div>
       </nav>
 
