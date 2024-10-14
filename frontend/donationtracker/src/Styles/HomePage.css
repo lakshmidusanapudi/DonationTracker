@@ -1,0 +1,40 @@
+/* Styles for the homepage */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+  }
+  
+  .navbar-heading {
+    margin: 0;
+    font-size: 24px;
+  }
+  
+  .navbar-buttons .btn {
+    margin-left: 10px;
+    padding: 8px 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .navbar-buttons .btn:hover {
+    background-color: #45a049;
+  }
+  
+  .content {
+    padding: 20px;
+    text-align: center;
+  }
+  
