@@ -5,11 +5,12 @@ import '../Styles/Registeradmin.css';
 
 const Additemexpenses = () => {
   const [formData, setFormData] = useState({
-    ItemName: '',
+    ItemName:'',
+    Purpose:'',
     Quantity: '',
-    Purpose: '',
-    SpentBy: '',
     CommitteName: '',
+    SpentBy: '',
+  
   });
 
   const handleChange = (e) => {
@@ -20,85 +21,58 @@ const Additemexpenses = () => {
     });
   };
 
+  const handleFileChange = (e) => {
+    setFormData({
+      ...formData,
+      Receipt: e.target.files[0] 
+    });
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // Quantity validation (if required, make sure it's a number and positive)
-    if (isNaN(formData.Quantity) || formData.Quantity <= 0) {
-      toast.error('Quantity should be a positive number');
-      return;
+    const form = new FormData();
+    for (const key in formData) {
+      form.append(key, formData[key]);
     }
 
     try {
-      await axios.post('http://localhost:5000/expense/itemexpenses', formData);
-      toast.success('Expense added successfully!');
+      await axios.post('http://localhost:5000/expenses/itemexpenses', form, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+      toast.success('Expenses addede sucessfully!');
     } catch (error) {
       console.error(error);
-      toast.error('Failed to add expense');
+      toast.error('Expenses adding failed');
     }
   };
 
   return (
     <div className="form-container">
       <form onSubmit={handleSubmit} className="register-form">
-        <h2>Add Expense</h2>
-
+        <h2>Add Cash Expenses</h2>
         <div className="form-group">
           <label>Item Name:</label>
-          <input
-            type="text"
-            name="ItemName"
-            value={formData.ItemName}
-            onChange={handleChange}
-            required
-          />
+          <input type="text" name="ItemName" value={formData.ItemName} onChange={handleChange} required />
         </div>
-
-        <div className="form-group">
-          <label>Quantity:</label>
-          <input
-            type="number"
-            name="Quantity"
-            value={formData.Quantity}
-            onChange={handleChange}
-            required
-          />
-        </div>
-
         <div className="form-group">
           <label>Purpose:</label>
-          <input
-            type="text"
-            name="Purpose"
-            value={formData.Purpose}
-            onChange={handleChange}
-            required
-          />
+          <input type="number" name="Quantity" value={formData.Purpose} onChange={handleChange} required />
         </div>
-
         <div className="form-group">
-          <label>Spent By:</label>
-          <input
-            type="text"
-            name="SpentBy"
-            value={formData.SpentBy}
-            onChange={handleChange}
-            required
-          />
+          <label>Quantity:</label>
+          <input type="number" name="Quantity" value={formData.Quantity} onChange={handleChange} required />
         </div>
-
         <div className="form-group">
           <label>Committee Name:</label>
-          <input
-            type="text"
-            name="CommitteName"
-            value={formData.CommitteName}
-            onChange={handleChange}
-            required
-          />
+          <input type="text" name="CommitteName" value={formData.CommitteName} onChange={handleChange} required />
         </div>
-
-        <button type="submit" className="submit-btn">Save</button>
+        <div className="form-group">
+          <label>Spent By:</label>
+          <input type="text" name="SpentBy" value={formData.SpentBy} onChange={handleChange} required />
+        </div>
+        <button type="submit" className="submit-btn">AddExpenses</button>
       </form>
       <ToastContainer />
     </div>
