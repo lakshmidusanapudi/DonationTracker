@@ -7,8 +7,8 @@ import AddCash from "./Components/AddCash";
 import AddItems from "./Components/AddItems";
 import AddCashExpenses from "./Components/Addcashexpenses";
 import Additemexpenses from "./Components/Additemexpenses";
-
-
+import CashCollectionTable from "./Components/Cashtable";
+import CashExpensesCollectionTable from "./Components/Cashexpenses";
 
 function App() {
   return (
@@ -22,6 +22,8 @@ function App() {
           <Route path='/AddItems' element={<AddItems/>}/>
           <Route path='/AddCashExpense' element={<AddCashExpenses/>}/>
           <Route path='/AddItemExpense' element={<Additemexpenses/>}/>
+          <Route path='/Cashtable' element={<CashCollectionTable/>}/>
+          <Route path='/Cashetable' element={<CashExpensesCollectionTable/>}/>
         </Routes>
       </Router>
     </div>

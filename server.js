@@ -4,8 +4,12 @@ const admin=require('./Routes/Admin')
 const committe=require('./Routes/CommitteMembers')
 const Collection=require('./Routes/Collections')
 const Expenses=require('./Routes/Expenses')
-app.use(express.json())
+const cors = require('cors');
 
+app.use(express.json())
+app.use(cors({
+    origin: 'http://localhost:3000'
+}));
 
 app.use('/admin',admin)
 app.use('/committemembers',committe)

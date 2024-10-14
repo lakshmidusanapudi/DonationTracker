@@ -30,7 +30,7 @@ const Addcommittemember = () => {
     }
 
     try {
-      await axios.post('http://localhost:5000/committemembers/register', form);
+      await axios.post('http://localhost:5000/committemembers/register', formData);
       toast.success('User registered successfully!');
     } catch (error) {
       console.error(error);

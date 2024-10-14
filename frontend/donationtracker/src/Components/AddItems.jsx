@@ -31,7 +31,7 @@ const AddItems = () => {
     }
 
     try {
-      await axios.post('http://localhost:5000/collection/item', form);
+      await axios.post('http://localhost:5000/collection/item', formData);
       toast.success('item added  successfully!');
     } catch (error) {
       console.error(error);

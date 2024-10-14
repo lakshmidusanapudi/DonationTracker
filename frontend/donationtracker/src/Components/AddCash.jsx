@@ -31,7 +31,11 @@ const AddCash = () => {
     }
 
     try {
-      await axios.post('http://localhost:5000/collection/cash', form);
+      await axios.post('http://localhost:5000/collection/cash', formData, {
+        headers: {
+          'Content-Type': 'application/json', // Ensure this is set to handle JSON
+        },
+      });
       toast.success('collection added  successfully!');
     } catch (error) {
       console.error(error);
@@ -82,12 +86,17 @@ const AddCash = () => {
         </select>
       </div>
       <div className="form-group">
+  <label>Committee Name:</label>
+  <input type="text" name="CommitteName" value={formData.CommitteName} onChange={handleChange} required/>
+</div>
+
+      <div className="form-group">
         <label>Collected By:</label>
         <input type="text" name="CollectedBy" value={formData.CollectedBy} onChange={handleChange} required/>
       </div>
       <div className="form-group">
         <label>Collected Date:</label>
-        <input type="date" name="CollectedDate" value={formData.CollectedDate} onChange={handleChange} required/>
+        <input type="text" name="CollectedDate" value={formData.CollectedDate} onChange={handleChange} required/>
       </div>
       <button type="submit" className="submit-btn">Add Collection</button>
     </form>

@@ -3,6 +3,7 @@ const Queries=require('../Queries/Collection.json')
 const connection = require('../db');
 
 const AddCashCollection = async (req, res) => {
+    console.log(req.body); 
     const {Devotte,PhnNumber,Email,Amount,TransactionMode,CommitteName,CollectedBy,CollectedDate } = req.body;
     if (!Devotte||!PhnNumber||!Email||!Amount||!TransactionMode||!CommitteName||!CollectedBy||!CollectedDate) {
         res.status(400);
@@ -75,13 +76,15 @@ const getitemcollection=async(req,res)=>{
     };
 
     const getcashbycommitte = async (req, res) => {
+        console.log(req.body);
         const { CommitteName } = req.body;
-    
+        console.log(req.body);
         if (!CommitteName) {
             return res.status(400).json({ message: "Committee name is required" });
         }
     
         try {
+            console.log(`Fetching cash collection for committee: ${CommitteName}`);
             const [result] = await connection.query(Queries.getcashbycommitte, [CommitteName]);
     
             if (result.length === 0) {

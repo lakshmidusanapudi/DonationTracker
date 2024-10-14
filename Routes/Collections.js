@@ -6,8 +6,8 @@ router.post('/cash',AddCashCollection),
 router.post('/item',AddItemCollection)
 router.get('/allcash',getcashcollection)
 router.get('/allitem',getitemcollection)
-router.get('/cashbycommitte',getcashbycommitte)
-router.get('/itembycommitte',getitemsbycommitte)
+router.post('/cashbycommitte',getcashbycommitte)
+router.post('/itembycommitte',getitemsbycommitte)
 router.get('/cashsum',getcashcountbycommitte)
 router.get('/itemsum',getitemscountbycommitte)
 

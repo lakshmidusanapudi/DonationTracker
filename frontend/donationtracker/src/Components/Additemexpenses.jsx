@@ -36,7 +36,7 @@ const Additemexpenses = () => {
     }
 
     try {
-      await axios.post('http://localhost:5000/expenses/itemexpenses', form, {
+      await axios.post('http://localhost:5000/expenses/itemexpenses', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
