@@ -1,5 +1,18 @@
 {
-    "CreateCashExpenses":"Create table IF NOT EXISTS CashExpenses(ItemName Varchar(225),Quantity Int,Amount Decimal,ShopOwnerPhnNumber Varchar(225),SpentBy Varchar(225),TransactionMode Varchar(225),Receipt Varchar(225))",
+    "CreateCashExpenses":"Create table IF NOT EXISTS CashExpenses(ItemName Varchar(225),Quantity Int,Amount Decimal,ShopOwnerPhnNumber Varchar(225),CommitteName Varchar(225),SpentBy Varchar(225),TransactionMode Varchar(225),Receipt Varchar(225))",
+    "AddCashExpenses":"INSERT INTO CashExpenses (ItemName,Quantity,Amount,ShopOwnerPhnNumber,CommitteName,SpentBy,TransactionMode,Receipt) VALUES(?,?,?,?,?,?,?,?)",
 
-    "CreateItemUsage":"Create table IF NOT EXISTS ItemUsage(ItemName Varchar(225),Quantity Int,Purpose Varchar(225),SpentBy Varchar(225))"
+    "CreateItemUsage":"Create table IF NOT EXISTS ItemUsage(ItemName Varchar(225),Quantity Int,Purpose Varchar(225),SpentBy Varchar(225)),CommitteName Varchar(225)",
+    "AddItemUsage":"INSERT INTO ItemUsage (ItemName,Quantity,Purpose,SpentBy,CommitteName) VALUES(?,?,?,?,?)",
+
+    "getallCashExpenses":"SELECT * FROM CashExpenses",
+    "getallItemUsage":"SELECT * FROM ItemUsage",
+
+    "getCashExpensesbycommitte":"SELECT * FROM CashExpenses WHERE CommitteName=?",
+    "getItemUsagebycommitte":"SELECT * FROM ItemUsage WHERE CommitteName=?",
+
+    "Committemembercheck": "SELECT * FROM CommitteMembers WHERE FullName=?",
+
+   "getTotalcashexpensesByCommitte": "SELECT CommitteName, SUM(Amount) AS TotalAmount FROM CashExpenses WHERE CommitteName = ? GROUP BY CommitteName",
+    "getTotalItemsexpensesByCommitte": "SELECT CommitteName, ItemName, SUM(Quantity) AS TotalQuantity FROM ItemUsage WHERE CommitteName = ? GROUP BY CommitteName, ItemName"
 }

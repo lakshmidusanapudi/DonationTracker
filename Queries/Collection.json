@@ -6,7 +6,10 @@
     "Committemembercheck": "SELECT * FROM CommitteMembers WHERE FullName=?",
     "getallcashcollection":"SELECT * FROM CashCollection",
     "getcashbycommitte":"SELECT * FROM CashCollection where CommitteName=?",
-     "getallitemcollection":"SELECT * FROM Itemollection",
-    "getitembycommitte":"SELECT * FROM ItemCollection where CommitteName=?"
+    "getallitemcollection":"SELECT * FROM Itemollection",
+    "getitembycommitte":"SELECT * FROM ItemCollection where CommitteName=?",
+    "getTotalAmountByCommitte": "SELECT CommitteName, SUM(Amount) AS TotalAmount FROM CashCollection WHERE CommitteName = ? GROUP BY CommitteName",
+    "getTotalitemsByCommitte": "SELECT CommitteName,ItemName, SUM(quantity) AS Totalquantity FROM ItemCollection WHERE CommitteName = ? GROUP BY CommitteName,ItemName"
+    
 
 }

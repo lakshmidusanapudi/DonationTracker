@@ -116,4 +116,45 @@ const getitemcollection=async(req,res)=>{
         }
     };
 
-module.exports = { AddCashCollection,AddItemCollection,getcashcollection,getitemcollection,getcashbycommitte,getitemsbycommitte};
+    const getitemscountbycommitte = async (req, res) => {
+        const { CommitteName } = req.body;
+    
+        if (!CommitteName) {
+            return res.status(400).json({ message: "Committee name is required" });
+        }
+    
+        try {
+            const [result] = await connection.query(Queries.getTotalitemsByCommitte, [CommitteName]);
+    
+            if (result.length === 0) {
+                return res.status(404).json({ message: "item collection not found" });
+            } else {
+                return res.status(200).json({ result, message: "Committee item collection" });
+            }
+        } catch (error) {
+            console.error("Error getting cash:", error);
+            res.status(500).json({ message: "Error retrieving cash collection", error: error.message });
+        }
+    };
+    const getcashcountbycommitte = async (req, res) => {
+        const { CommitteName } = req.body;
+    
+        if (!CommitteName) {
+            return res.status(400).json({ message: "Committee name is required" });
+        }
+    
+        try {
+            const [result] = await connection.query(Queries.getTotalAmountByCommitte, [CommitteName]);
+    
+            if (result.length === 0) {
+                return res.status(404).json({ message: "item collection not found" });
+            } else {
+                return res.status(200).json({ result, message: "Committee item collection" });
+            }
+        } catch (error) {
+            console.error("Error getting cash:", error);
+            res.status(500).json({ message: "Error retrieving cash collection", error: error.message });
+        }
+    };
+
+module.exports = { AddCashCollection,AddItemCollection,getcashcollection,getitemcollection,getcashbycommitte,getitemsbycommitte,getcashcountbycommitte,getitemscountbycommitte};
