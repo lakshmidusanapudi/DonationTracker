@@ -89,7 +89,7 @@ const AddCash = () => {
         <label>Collected Date:</label>
         <input type="date" name="CollectedDate" value={formData.CollectedDate} onChange={handleChange} required/>
       </div>
-      <button type="submit" className="submit-btn">Save</button>
+      <button type="submit" className="submit-btn">Add Collection</button>
     </form>
     <ToastContainer />
   </div>

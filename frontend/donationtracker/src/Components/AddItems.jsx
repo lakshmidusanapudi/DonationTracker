@@ -32,10 +32,10 @@ const AddItems = () => {
 
     try {
       await axios.post('http://localhost:5000/collection/item', form);
-      toast.success('collection added  successfully!');
+      toast.success('item added  successfully!');
     } catch (error) {
       console.error(error);
-      toast.error('failed to add collection');
+      toast.error('failed to add item');
     }
   };
 
@@ -57,7 +57,7 @@ const AddItems = () => {
   return (
     <div className="form-container">
     <form onSubmit={handleSubmit} className="register-form">
-      <h2>Add Cash Collection</h2>
+      <h2>Add item Collection</h2>
       <div className="form-group">
         <label>Devotee Name:</label>
         <input type="text" name="Devotte" value={formData.Devotte} onChange={handleChange}required/>
@@ -86,7 +86,7 @@ const AddItems = () => {
         <label>Collected Date:</label>
         <input type="date" name="CollectedDate" value={formData.CollectedDate} onChange={handleChange} required/>
       </div>
-      <button type="submit" className="submit-btn">Save</button>
+      <button type="submit" className="submit-btn">Add Item</button>
     </form>
     <ToastContainer />
   </div>

@@ -90,7 +90,7 @@ const Addcashexpenses = () => {
           <label>Receipt:</label>
           <input type="file" name="Receipt" onChange={handleFileChange} required />
         </div>
-        <button type="submit" className="submit-btn">Register</button>
+        <button type="submit" className="submit-btn">Add Expense</button>
       </form>
       <ToastContainer />
     </div>

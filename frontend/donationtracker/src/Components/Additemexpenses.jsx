@@ -41,7 +41,7 @@ const Additemexpenses = () => {
           'Content-Type': 'multipart/form-data',
         },
       });
-      toast.success('Expenses addede sucessfully!');
+      toast.success('Expenses added sucessfully!');
     } catch (error) {
       console.error(error);
       toast.error('Expenses adding failed');
@@ -72,7 +72,7 @@ const Additemexpenses = () => {
           <label>Spent By:</label>
           <input type="text" name="SpentBy" value={formData.SpentBy} onChange={handleChange} required />
         </div>
-        <button type="submit" className="submit-btn">AddExpenses</button>
+        <button type="submit" className="submit-btn">Add Expenses</button>
       </form>
       <ToastContainer />
     </div>
