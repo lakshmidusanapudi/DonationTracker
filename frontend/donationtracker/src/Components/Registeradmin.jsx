@@ -29,7 +29,7 @@ const Registeradmin = () => {
     }
 
     try {
-      await axios.post('http://localhost:5000/api/admin/register', form);
+      await axios.post('http://localhost:5000/admin/register', form);
       toast.success('User registered successfully!');
     } catch (error) {
       console.error(error);
