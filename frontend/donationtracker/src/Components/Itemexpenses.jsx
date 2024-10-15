@@ -8,7 +8,7 @@ const CashCollectionTable = () => {
     const CommitteName = 'Matyalammacommitte';
 
     useEffect(() => {
-        axios.post('http://localhost:5000/collection/cashbycommitte', {
+        axios.post('http://localhost:5000/expenses/getitemusagebycommitte', {
             CommitteName,
         }) 
             .then((response) => {
@@ -36,28 +36,23 @@ const CashCollectionTable = () => {
             <table>
                 <thead>
                     <tr>
-                        <th>Devotte</th>
-                        <th>PhnNumber</th>
-                        <th>Email</th>
-                        <th>Amount</th>
-                        <th>Transaction Mode</th>
+                    ItemName,Quantity,Purpose,SpentBy,CommitteName
+                        <th>ItemName</th>
+                        <th>Quantity</th>
+                        <th>Purpose</th>
+                        <th>SpentBy</th>
                         <th>Committee Name</th>
-                        <th>Collected By</th>
-                        <th>Collected Date</th>
                     </tr>
                 </thead>
                 <tbody>
                     {cashCollectionData.length > 0 ? (
                         cashCollectionData.map((item, index) => (
                             <tr key={index}>
-                                <td>{item.Devotte}</td>
-                                <td>{item.PhnNumber}</td>
-                                <td>{item.Email}</td>
                                 <td>{item.ItemName}</td>
                                 <td>{item.Quantity}</td>
+                                <td>{item.Purpose}</td>
+                                <td>{item.SpentBy}</td>
                                 <td>{item.CommitteName}</td>
-                                <td>{item.CollectedBy}</td>
-                                <td>{item.CollectedDate}</td>
                             </tr>
                         ))
                     ) : (
