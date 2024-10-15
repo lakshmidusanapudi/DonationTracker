@@ -9,6 +9,7 @@ import AddCashExpenses from "./Components/Addcashexpenses";
 import Additemexpenses from "./Components/Additemexpenses";
 import CashCollectionTable from "./Components/Cashtable";
 import CashExpensesCollectionTable from "./Components/Cashexpenses";
+import Login from "./Components/Login";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path='/AddItemExpense' element={<Additemexpenses/>}/>
           <Route path='/Cashtable' element={<CashCollectionTable/>}/>
           <Route path='/Cashetable' element={<CashExpensesCollectionTable/>}/>
+          <Route path='/ComitteeMemberLogin' element={<Login/>}/>
         </Routes>
       </Router>
     </div>
