@@ -23,20 +23,23 @@ const CommitteRegister = async (req, res) => {
         }
 };
 
-const CommitteLogin=async(req,res)=>{
-    const{Email,Password}=req.body;
-    if(!Email||!Password){
-        res.status(400);
-        throw new Error("Please enter all fields");
+const CommitteLogin = async (req, res) => {
+    const { Email, Password } = req.body;
+    if (!Email || !Password) {
+        return res.status(400).json({ message: "Please enter all fields" });
     }
-    try{
-        await connection.query(Queries.Committelogin,[Email,Password]);
-        res.status(200).json({message:"Committe Login Sucessfully"});
-    }
-    catch(error){
-        console.error("Error in login",error);
-        res.status(500).json({ message: "Error creating user", error: createError.message });
+
+    try {
+        const [rows] = await connection.query(Queries.Committelogin, [Email, Password]);        
+        if (rows.length === 0) {
+            return res.status(401).json({ message: "Invalid Email or Password" });
+        }
+        res.status(200).json({ message: "Committee Login Successful", user: rows[0] });
+    } catch (error) {
+        console.error("Error in login", error);
+        return res.status(500).json({ message: "Error during login", error: error.message });
     }
 };
+
 
 module.exports = { CommitteRegister,CommitteLogin};
