@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import '../Styles/tables.css'
 
 const CashCollectionTable = () => {
     const [cashCollectionData, setCashCollectionData] = useState([]);
@@ -32,7 +33,7 @@ const CashCollectionTable = () => {
 
     return (
         <div>
-            <h2>Cash Collection Data</h2>
+            <h2>Items Collection Data</h2>
             <table>
                 <thead>
                     <tr>

@@ -1,0 +1,47 @@
+/* DashBoard.css */
+
+table {
+    width: 90%;
+    border-collapse: collapse;
+    margin: 20px 80px;
+    font-size: 18px;
+    text-align: left;
+  }
+  
+  table thead {
+    background-color: #595a5ae4; /* You can change this to match your app's theme */
+    color: white;
+  }
+  
+  table th,
+  table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+  }
+  
+  table tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  table tr:hover {
+    background-color: #ddd;
+  }
+  
+  table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+  }
+  
+  h2 {
+    margin-bottom: 20px;
+    color: #333; /* Adjust color based on your theme */
+  }
+  
+  /* No data row styling */
+  table tbody tr td[colspan="8"] {
+    text-align: center;
+    color: #999;
+    font-style: italic;
+  }
+  

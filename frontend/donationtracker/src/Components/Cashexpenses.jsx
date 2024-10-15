@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import '../Styles/tables.css'
 
 const CashExpensesCollectionTable = () => {
     const [cashCollectionData, setCashCollectionData] = useState([]);
