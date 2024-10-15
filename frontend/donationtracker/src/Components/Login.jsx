@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css'
+import 'react-toastify/dist/ReactToastify.css';
 import '../Styles/Registeradmin.css';
 
 const Login = () => {
@@ -18,11 +18,17 @@ const Login = () => {
 
     try {
       const response = await axios.post('http://localhost:5000/committemembers/login', { Email: email, Password: password });
-      console.log('login sucessful')
-      toast.success('Login Sucessfull');
+      if (response.status === 200) {
+        toast.success('Login Successful');
+        console.log('Login successful:', response.data);
+      }
     } catch (error) {
       console.error('Error during login', error);
-      toast.error('Error during login');
+      if (error.response && error.response.data && error.response.data.message) {
+        toast.error(error.response.data.message);
+      } else {
+        toast.error('Error during login');
+      }
     }
   };
 

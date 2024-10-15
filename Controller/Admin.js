@@ -25,7 +25,10 @@ const Login=async(req,res)=>{
         throw new Error("Please enter all fields");
     }
     try{
-        await connection.query(Queries.Adminlogin,[Email,Password]);
+        const [rows] = await connection.query(Queries.Adminlogin,[Email,Password]);
+        if (rows.length === 0) {
+            return res.status(401).json({ message: "Invalid Email or Password" });
+        }
         res.status(200).json({message:"Admin Login Sucessfully"});
     }
     catch(error){
