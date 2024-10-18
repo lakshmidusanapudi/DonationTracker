@@ -51,7 +51,7 @@ const Additemexpenses = () => {
   return (
     <div className="form-container">
       <form onSubmit={handleSubmit} className="register-form">
-        <h2>Add Cash Expenses</h2>
+        <h2>Add item Expenses</h2>
         <div className="form-group">
           <label>Item Name:</label>
           <input type="text" name="ItemName" value={formData.ItemName} onChange={handleChange} required />

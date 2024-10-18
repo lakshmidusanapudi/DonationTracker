@@ -33,7 +33,7 @@ const CashCollectionTable = () => {
 
     return (
         <div>
-            <h2>Cash Collection Data</h2>
+            <h2>Item Expense Data</h2>
             <table>
                 <thead>
                     <tr>
